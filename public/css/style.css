@@ -1,0 +1,140 @@
+/* Main page style */
+body {
+    margin: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(135deg, #fff7ef, #ead7c3);
+    color: #333;
+}
+
+/* Navigation bar */
+nav {
+    background: linear-gradient(90deg, #5d4037, #8d6e63);
+    color: white;
+    padding: 18px 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Website name */
+nav h2 {
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+/* Navigation links */
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 22px;
+    font-weight: bold;
+}
+
+/* Hover effect for links */
+.nav-links a:hover {
+    color: #ffe0b2;
+}
+
+/* Hero section */
+.hero {
+    text-align: center;
+    padding: 110px 20px;
+    background: linear-gradient(135deg, #fff3e0, #d7ccc8);
+}
+
+/* Main heading */
+.hero h1 {
+    font-size: 55px;
+    color: #4e342e;
+    margin-bottom: 15px;
+}
+
+/* Hero text */
+.hero p {
+    font-size: 21px;
+    max-width: 650px;
+    margin: 0 auto 30px auto;
+}
+
+/* Button style */
+button {
+    padding: 13px 28px;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(90deg, #6d4c41, #a1887f);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Button hover */
+button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, #4e342e, #8d6e63);
+}
+
+/* Feature section */
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 50px 30px;
+    flex-wrap: wrap;
+}
+
+/* Cards */
+.card {
+    background: rgba(255, 255, 255, 0.95);
+    width: 260px;
+    padding: 25px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+/* Card hover */
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Card headings */
+.card h3 {
+    color: #5d4037;
+}
+
+/* Footer */
+footer {
+    background: #3e2723;
+    color: white;
+    text-align: center;
+    padding: 22px;
+    margin-top: 40px;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links {
+        margin-top: 12px;
+    }
+
+    .nav-links a {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+}
