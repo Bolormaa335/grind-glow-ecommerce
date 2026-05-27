@@ -1,69 +1,113 @@
 // Get basket items from localStorage
 let basket = JSON.parse(localStorage.getItem("basket")) || [];
 
-// Select basket container from HTML
+// Select basket container
 let basketContainer = document.getElementById("basketContainer");
 
 // Select total price element
 let totalPrice = document.getElementById("totalPrice");
 
+// Create an empty object to group same products
+let groupedBasket = {};
+
+// Loop through basket and count same products
+basket.forEach(function(item) {
+
+    // If product already exists, increase quantity
+    if (groupedBasket[item.name]) {
+        groupedBasket[item.name].quantity += 1;
+    } else {
+
+        // If product does not exist, add it first time
+        groupedBasket[item.name] = {
+            name: item.name,
+            price: item.price,
+            quantity: 1
+        };
+    }
+});
+
+// Convert grouped object into array
+let basketItems = Object.values(groupedBasket);
+
 // Total price starts from zero
 let total = 0;
 
-if (basket.length === 0) {
+// If basket is empty
+if (basketItems.length === 0) {
 
-    // Show empty basket message
-    basketContainer.innerHTML = "<p>Your basket is empty. Please add products first.</p>";
+    // Show message
+    basketContainer.innerHTML =
+        "<p>Your basket is empty. Please add products first.</p>";
 
-    // Hide total price
+    // Hide total
     totalPrice.textContent = "";
 
-    // Hide checkout button area
+    // Hide checkout button
     document.querySelector(".center").style.display = "none";
+
 } else {
 
-    // Loop through every item in basket
-    basket.forEach((item, index) => {
+    // Loop through grouped basket items
+    basketItems.forEach(function(item) {
 
-        // Convert price text like €4.50 into number
-        let priceNumber = Number(item.price.replace("€", ""));
+        // Convert price text to number
+        let priceNumber =
+            Number(item.price.replace("€", ""));
 
-        // Add price to total
-        total += priceNumber;
+        // Add item subtotal to total
+        total += priceNumber * item.quantity;
 
-        // Create basket item card
+        // Create basket card
         let div = document.createElement("div");
 
-        // Add class for styling
+        // Add CSS class
         div.className = "basket-item";
 
-        // Add item details into card
+        // Add item details
         div.innerHTML = `
             <h3>${item.name}</h3>
-            <p>${item.price}</p>
 
-            <!-- Remove button removes item by index -->
-            <button onclick="removeItem(${index})">Remove</button>
+            <p>Price: ${item.price}</p>
+
+            <p>Quantity: ${item.quantity}</p>
+
+            <p>Subtotal: €${(priceNumber * item.quantity).toFixed(2)}</p>
+
+            <button onclick="removeOne('${item.name}')">
+                Remove One
+            </button>
         `;
 
-        // Display item in basket page
+        // Display item
         basketContainer.appendChild(div);
     });
 
-    // Display total price
-    totalPrice.textContent = "Total: €" + total.toFixed(2);
+    // Display total
+    totalPrice.textContent =
+        "Total: €" + total.toFixed(2);
 }
 
 
-// Function to remove product from basket
-function removeItem(index) {
+// Function to remove one selected product
+function removeOne(productName) {
 
-    // Remove selected item from basket array
-    basket.splice(index, 1);
+    // Find first matching product index
+    let index = basket.findIndex(function(item) {
+        return item.name === productName;
+    });
 
-    // Save updated basket to localStorage
-    localStorage.setItem("basket", JSON.stringify(basket));
+    // If product exists, remove one
+    if (index !== -1) {
+        basket.splice(index, 1);
+    }
 
-    // Reload page to update basket display
+    // Save updated basket
+    localStorage.setItem(
+        "basket",
+        JSON.stringify(basket)
+    );
+
+    // Reload page
     location.reload();
 }

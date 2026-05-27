@@ -91,6 +91,9 @@ button:hover {
     border-radius: 18px;
     text-align: center;
     box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    display: flex;
+flex-direction: column;
+justify-content: space-between;
 }
 
 /* Card hover */
@@ -234,7 +237,7 @@ footer {
 /* Hero section */
 .hero {
 
-    height: 80vh;
+    height: 65vh;
 
     display: flex;
     justify-content: center;
@@ -257,8 +260,13 @@ footer {
 /* Hero text */
 .hero-content h1 {
 
-    font-size: 60px;
+    font-size: 52px;
+
     margin-bottom: 20px;
+
+    color: white;
+
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
 }
 
 /* Hero paragraph */
@@ -277,7 +285,7 @@ footer {
 
 .about {
 
-    width: 75%;
+    width: 85%;
     margin: 60px auto;
 
     padding: 40px;
@@ -367,4 +375,25 @@ footer {
 
     color: #5d4037;
     margin-bottom: 15px;
+}
+/* Featured title */
+.featured h2 {
+
+    text-align: center;
+
+    margin-bottom: 40px;
+
+    color: #5d4037;
+
+    font-size: 36px;
+}
+.card img {
+
+    width: 100%;
+
+    height: 220px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
 }
