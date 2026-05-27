@@ -304,4 +304,17 @@ footer {
     margin: 10px auto;
     border-radius: 10px;
     border: 1px solid #ccc;
+}/* Search box container */
+.search-box {
+    width: 90%;
+    margin: 30px auto;
+    text-align: center;
+}
+
+/* Search input */
+.search-box input {
+    width: 40%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
 }
