@@ -297,4 +297,11 @@ footer {
 
     color: #5d4037;
     margin-bottom: 20px;
+}/* Milk option dropdown */
+.card select {
+    width: 90%;
+    padding: 10px;
+    margin: 10px auto;
+    border-radius: 10px;
+    border: 1px solid #ccc;
 }
