@@ -121,6 +121,29 @@ app.delete("/api/basket", (req, res) => {
         res.json({ message: "Basket cleared successfully" });
     });
 });
+// API route: update product price
+app.put("/api/products/:id/price", (req, res) => {
+
+    // Get product id from URL
+    const productId = req.params.id;
+
+    // Get new price from request body
+    const newPrice = req.body.price;
+
+    // SQL query to update price
+    const sql = "UPDATE products SET price = ? WHERE id = ?";
+
+    connection.query(sql, [newPrice, productId], (err) => {
+
+        if (err) {
+            console.log(err);
+            res.status(500).send("Price update error");
+            return;
+        }
+
+        res.json({ message: "Price updated successfully" });
+    });
+});
 // Start server on port 3000
 app.listen(3000, () => {
 

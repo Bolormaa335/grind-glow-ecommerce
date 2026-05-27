@@ -1,47 +1,51 @@
 // Select admin form
 const adminForm = document.getElementById("adminForm");
 
-// Run function when form is submitted
+// Run when admin submits the form
 adminForm.addEventListener("submit", function(event) {
 
-    // Stop page refresh
+    // Stop page reload
     event.preventDefault();
 
-    // Get values from form
-    const name =
-        document.getElementById("productName").value;
+    // Get product id
+    const productId =
+        document.getElementById("productId").value;
 
-    const description =
-        document.getElementById("productDescription").value;
+    // Get new price
+    const newPrice =
+        document.getElementById("newPrice").value;
 
-    const price =
-        document.getElementById("productPrice").value;
+    // Validate product id
+    if (productId === "") {
+        alert("Please enter product ID.");
+        return;
+    }
 
-    const image =
-        document.getElementById("productImage").value;
+    // Validate price
+    if (newPrice === "" || Number(newPrice) <= 0) {
+        alert("Please enter a valid price.");
+        return;
+    }
 
-    // Create new product object
-    const newProduct = {
-        name: name,
-        description: description,
-        price: price,
-        image: image
-    };
+    // Send PUT request to update price in database
+    fetch("/api/products/" + productId + "/price", {
+        method: "PUT",
 
-    // Get old products
-    let products =
-        JSON.parse(localStorage.getItem("products")) || [];
+        headers: {
+            "Content-Type": "application/json"
+        },
 
-    // Add new product
-    products.push(newProduct);
+        body: JSON.stringify({
+            price: newPrice
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
 
-    // Save updated products
-    localStorage.setItem("products",
-        JSON.stringify(products));
+        // Show success message
+        alert(data.message);
 
-    // Success message
-    alert("Product added successfully!");
-
-    // Reset form
-    adminForm.reset();
+        // Clear form
+        adminForm.reset();
+    });
 });

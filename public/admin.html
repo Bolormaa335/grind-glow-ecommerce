@@ -4,13 +4,11 @@
 <head>
     <meta charset="UTF-8">
 
-    <!-- Responsive design -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-    <!-- Page title -->
     <title>Admin - Grind & Glow</title>
 
-    <!-- Connect CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -18,7 +16,6 @@
 
     <!-- Navigation -->
     <nav>
-
         <h2>Grind & Glow</h2>
 
         <div class="nav-links">
@@ -28,56 +25,45 @@
             <a href="checkout.html">Checkout</a>
             <a href="admin.html">Admin</a>
         </div>
-
     </nav>
 
     <!-- Page heading -->
     <section class="page-header">
-
-        <h1>Admin Panel</h1>
+        <h1>Admin Price Update</h1>
 
         <p>
-            Add new products into the coffee shop.
+            Update product prices when market prices change.
         </p>
-
     </section>
 
-    <!-- Admin form -->
+    <!-- Admin form container -->
     <div class="checkout-container">
 
         <form id="adminForm">
 
-            <!-- Product name -->
-            <input type="text" id="productName"
-                placeholder="Product Name">
+            <!-- Product id from database -->
+            <input type="number"
+                id="productId"
+                placeholder="Product ID">
 
-            <!-- Product description -->
-            <textarea id="productDescription"
-                placeholder="Product Description"></textarea>
+            <!-- New product price -->
+            <input type="number"
+                id="newPrice"
+                step="0.01"
+                placeholder="New Price">
 
-            <!-- Product price -->
-            <input type="text" id="productPrice"
-                placeholder="Product Price">
-
-            <!-- Product image -->
-            <input type="text" id="productImage"
-                placeholder="Image File Name">
-
-            <!-- Submit -->
             <button type="submit">
-                Add Product
+                Update Price
             </button>
 
         </form>
 
     </div>
 
-    <!-- Footer -->
     <footer>
         <p>© 2026 Grind & Glow Coffee Shop</p>
     </footer>
 
-    <!-- Connect JavaScript -->
     <script src="js/admin.js"></script>
 
 </body>
