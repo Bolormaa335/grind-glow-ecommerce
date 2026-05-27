@@ -46,9 +46,8 @@ fetch("/api/products")
 
                 ${milkOption}
 
-                <button onclick="addToBasket('${product.name}', '€${product.price}')">
-                    Add to Basket
-                </button>
+                <button onclick="addToBasket(${product.id})">Add to Basket
+                 </button>
             `;
 
             // Display card on page
@@ -57,19 +56,27 @@ fetch("/api/products")
     });
 
 
-// Function to add selected product to basket
-function addToBasket(name, price) {
+// Function to add selected product to basket database
+function addToBasket(productId) {
 
-    const product = {
-        name: name,
-        price: price
-    };
+    // Send selected product id to server
+    fetch("/api/basket", {
+        method: "POST",
 
-    let basket = JSON.parse(localStorage.getItem("basket")) || [];
+        headers: {
+            "Content-Type": "application/json"
+        },
 
-    basket.push(product);
+        body: JSON.stringify({
+            product_id: productId
+        })
+    })
 
-    localStorage.setItem("basket", JSON.stringify(basket));
+    // Convert response to JSON
+    .then(response => response.json())
 
-    alert(name + " added to basket!");
+    // Show success message
+    .then(data => {
+        alert(data.message);
+    });
 }
