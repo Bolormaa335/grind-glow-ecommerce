@@ -338,3 +338,33 @@ footer {
     font-size: 18px;
     color: #5d4037;
 }
+/* Benefits layout */
+.benefits {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
+    margin-top: 30px;
+}
+
+/* Benefit card */
+.benefit-card {
+
+    background: #f8f5f2;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* Benefit title */
+.benefit-card h3 {
+
+    color: #5d4037;
+    margin-bottom: 15px;
+}
