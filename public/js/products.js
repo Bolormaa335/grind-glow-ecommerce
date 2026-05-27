@@ -1,46 +1,75 @@
+// Fetch products from MySQL database through server API
+fetch("/api/products")
+    .then(response => response.json())
+    .then(products => {
+
+        // Select products container
+        const container = document.getElementById("productsContainer");
+
+        // Loop through products from database
+        products.forEach(product => {
+
+            // Create product card
+            const card = document.createElement("div");
+            card.className = "card";
+
+            // Add milk option only for coffee drinks
+            let milkOption = "";
+
+            if (
+                product.name === "Latte" ||
+                product.name === "Americano" ||
+                product.name === "Cappuccino"
+            ) {
+                milkOption = `
+                    <div class="milk-option">
+                        <label>Milk Option:</label>
+                        <select>
+                            <option>Regular Milk</option>
+                            <option>Oat Milk</option>
+                            <option>Almond Milk</option>
+                            <option>Soy Milk</option>
+                        </select>
+                    </div>
+                `;
+            }
+
+            // Add product details into card
+            card.innerHTML = `
+                <img src="images/${product.image}" alt="${product.name}">
+
+                <h3>${product.name}</h3>
+
+                <p>${product.description}</p>
+
+                <p><strong>€${product.price}</strong></p>
+
+                ${milkOption}
+
+                <button onclick="addToBasket('${product.name}', '€${product.price}')">
+                    Add to Basket
+                </button>
+            `;
+
+            // Display card on page
+            container.appendChild(card);
+        });
+    });
+
+
 // Function to add selected product to basket
 function addToBasket(name, price) {
 
-    // Create product object
     const product = {
         name: name,
         price: price
     };
 
-    // Get old basket or create empty basket
     let basket = JSON.parse(localStorage.getItem("basket")) || [];
 
-    // Add selected product into basket
     basket.push(product);
 
-    // Save basket into browser localStorage
     localStorage.setItem("basket", JSON.stringify(basket));
 
-    // Show success message
     alert(name + " added to basket!");
-}// Select search input
-const searchInput = document.getElementById("searchInput");
-
-// Run search when user types
-searchInput.addEventListener("keyup", function() {
-
-    // Get typed text and make it lowercase
-    const searchText = searchInput.value.toLowerCase();
-
-    // Select all product cards
-    const cards = document.querySelectorAll(".card");
-
-    // Loop through each product card
-    cards.forEach(function(card) {
-
-        // Get product name
-        const title = card.querySelector("h3").textContent.toLowerCase();
-
-        // Show product if it matches search text
-        if (title.includes(searchText)) {
-            card.style.display = "block";
-        } else {
-            card.style.display = "none";
-        }
-    });
-});
+}
