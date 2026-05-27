@@ -10,10 +10,16 @@ let totalPrice = document.getElementById("totalPrice");
 // Total price starts from zero
 let total = 0;
 
-// If basket is empty, show message
 if (basket.length === 0) {
-    basketContainer.innerHTML = "<p>Your basket is empty.</p>";
+
+    // Show empty basket message
+    basketContainer.innerHTML = "<p>Your basket is empty. Please add products first.</p>";
+
+    // Hide total price
     totalPrice.textContent = "";
+
+    // Hide checkout button area
+    document.querySelector(".center").style.display = "none";
 } else {
 
     // Loop through every item in basket

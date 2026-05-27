@@ -297,11 +297,25 @@ footer {
 
     color: #5d4037;
     margin-bottom: 20px;
-}/* Milk option dropdown */
-.card select {
-    width: 90%;
+}
+/* Milk option box */
+.milk-option {
+    margin: 15px 0;
+    text-align: center;
+}
+
+/* Milk option label */
+.milk-option label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #5d4037;
+}
+
+/* Milk option dropdown */
+.milk-option select {
+    width: 85%;
     padding: 10px;
-    margin: 10px auto;
     border-radius: 10px;
     border: 1px solid #ccc;
 }/* Search box container */
@@ -317,4 +331,10 @@ footer {
     padding: 12px;
     border-radius: 10px;
     border: 1px solid #ccc;
+}
+/* Empty basket message */
+.basket-container p {
+    text-align: center;
+    font-size: 18px;
+    color: #5d4037;
 }
