@@ -1,113 +1,74 @@
-// Get basket items from localStorage
-let basket = JSON.parse(localStorage.getItem("basket")) || [];
+// Function to load basket items from database
+function loadBasket() {
 
-// Select basket container
-let basketContainer = document.getElementById("basketContainer");
+    // Fetch basket data from server
+    fetch("/api/basket")
+        .then(response => response.json())
+        .then(items => {
 
-// Select total price element
-let totalPrice = document.getElementById("totalPrice");
+            const basketContainer =
+                document.getElementById("basketContainer");
 
-// Create an empty object to group same products
-let groupedBasket = {};
+            const totalPrice =
+                document.getElementById("totalPrice");
 
-// Loop through basket and count same products
-basket.forEach(function(item) {
+            // Clear old content
+            basketContainer.innerHTML = "";
 
-    // If product already exists, increase quantity
-    if (groupedBasket[item.name]) {
-        groupedBasket[item.name].quantity += 1;
-    } else {
+            let total = 0;
 
-        // If product does not exist, add it first time
-        groupedBasket[item.name] = {
-            name: item.name,
-            price: item.price,
-            quantity: 1
-        };
-    }
-});
+            // If basket is empty
+            if (items.length === 0) {
+                basketContainer.innerHTML =
+                    "<p>Your basket is empty. Please add products first.</p>";
 
-// Convert grouped object into array
-let basketItems = Object.values(groupedBasket);
+                totalPrice.textContent = "";
+                document.querySelector(".center").style.display = "none";
+                return;
+            }
 
-// Total price starts from zero
-let total = 0;
+            // Loop through basket items
+            items.forEach(item => {
 
-// If basket is empty
-if (basketItems.length === 0) {
+                const priceNumber = Number(item.price);
 
-    // Show message
-    basketContainer.innerHTML =
-        "<p>Your basket is empty. Please add products first.</p>";
+                total += priceNumber * item.quantity;
 
-    // Hide total
-    totalPrice.textContent = "";
+                const div = document.createElement("div");
+                div.className = "basket-item";
 
-    // Hide checkout button
-    document.querySelector(".center").style.display = "none";
+                div.innerHTML = `
+                    <h3>${item.name}</h3>
+                    <p>Price: €${priceNumber.toFixed(2)}</p>
+                    <p>Quantity: ${item.quantity}</p>
+                    <p>Subtotal: €${(priceNumber * item.quantity).toFixed(2)}</p>
 
-} else {
+                    <button onclick="removeItem(${item.id})">
+                        Remove
+                    </button>
+                `;
 
-    // Loop through grouped basket items
-    basketItems.forEach(function(item) {
+                basketContainer.appendChild(div);
+            });
 
-        // Convert price text to number
-        let priceNumber =
-            Number(item.price.replace("€", ""));
-
-        // Add item subtotal to total
-        total += priceNumber * item.quantity;
-
-        // Create basket card
-        let div = document.createElement("div");
-
-        // Add CSS class
-        div.className = "basket-item";
-
-        // Add item details
-        div.innerHTML = `
-            <h3>${item.name}</h3>
-
-            <p>Price: ${item.price}</p>
-
-            <p>Quantity: ${item.quantity}</p>
-
-            <p>Subtotal: €${(priceNumber * item.quantity).toFixed(2)}</p>
-
-            <button onclick="removeOne('${item.name}')">
-                Remove One
-            </button>
-        `;
-
-        // Display item
-        basketContainer.appendChild(div);
-    });
-
-    // Display total
-    totalPrice.textContent =
-        "Total: €" + total.toFixed(2);
+            totalPrice.textContent =
+                "Total: €" + total.toFixed(2);
+        });
 }
 
 
-// Function to remove one selected product
-function removeOne(productName) {
+// Function to remove item from basket database
+function removeItem(id) {
 
-    // Find first matching product index
-    let index = basket.findIndex(function(item) {
-        return item.name === productName;
+    fetch("/api/basket/" + id, {
+        method: "DELETE"
+    })
+    .then(response => response.json())
+    .then(() => {
+        loadBasket();
     });
-
-    // If product exists, remove one
-    if (index !== -1) {
-        basket.splice(index, 1);
-    }
-
-    // Save updated basket
-    localStorage.setItem(
-        "basket",
-        JSON.stringify(basket)
-    );
-
-    // Reload page
-    location.reload();
 }
+
+
+// Load basket when page opens
+loadBasket();
