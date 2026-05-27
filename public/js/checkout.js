@@ -10,6 +10,8 @@ form.addEventListener("submit", function(event) {
     // Get form values
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
+    // Get customer phone number
+    const phone = document.getElementById("phone").value;
     const address = document.getElementById("address").value;
 
     // Pattern allows letters and spaces only
@@ -44,7 +46,13 @@ if (!emailPattern.test(email)) {
         alert("Please enter your delivery address.");
         return;
     }
+// Validate phone number
+if (phone === "") {
 
+    alert("Please enter your phone number.");
+
+    return;
+}
     // Show success message
     alert("Thank you for your order, " + name + "!");
 
