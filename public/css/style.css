@@ -171,4 +171,117 @@ footer {
 /* Center content */
 .center {
     text-align: center;
+}/* Checkout form container */
+.checkout-container {
+    width: 40%;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Checkout input fields */
+.checkout-container input,
+.checkout-container textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Checkout page responsive design */
+@media screen and (max-width: 768px) {
+    .checkout-container {
+        width: 85%;
+    }
+}
+/* Product page grid layout */
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    width: 90%;
+    margin: 40px auto;
+}
+
+/* Product card size */
+.products .card {
+    width: auto;
+}
+
+/* Product image size */
+.products .card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+/* Responsive product layout */
+@media screen and (max-width: 900px) {
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .products {
+        grid-template-columns: 1fr;
+    }
+}
+/* Hero section */
+.hero {
+
+    height: 80vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.5),
+    rgba(0,0,0,0.5)),
+
+    url("../images/latte.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    color: white;
+}
+
+/* Hero text */
+.hero-content h1 {
+
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+/* Hero paragraph */
+.hero-content p {
+
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+/* Featured section */
+.featured {
+
+    width: 90%;
+    margin: 60px auto;
+}
+
+/* About section */
+.about {
+
+    width: 70%;
+    margin: 80px auto;
+
+    text-align: center;
+
+    line-height: 1.8;
 }

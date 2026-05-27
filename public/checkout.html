@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Makes page responsive on mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Page title -->
+    <title>Checkout - Grind & Glow</title>
+
+    <!-- Link CSS file -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation bar -->
+    <nav>
+        <h2>Grind & Glow</h2>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="basket.html">Basket</a>
+            <a href="checkout.html">Checkout</a>
+            <a href="admin.html">Admin</a>
+        </div>
+    </nav>
+
+    <!-- Page heading -->
+    <section class="page-header">
+        <h1>Checkout</h1>
+        <p>Complete your order details below.</p>
+    </section>
+
+    <!-- Checkout form container -->
+    <div class="checkout-container">
+
+        <!-- Form is checked by JavaScript before submitting -->
+        <form id="checkoutForm">
+
+            <input type="text" id="name" placeholder="Full Name">
+
+            <input type="text" id="email" placeholder="Email Address">
+
+            <textarea id="address" placeholder="Delivery Address"></textarea>
+
+            <button type="submit">Place Order</button>
+
+        </form>
+    </div>
+
+    <footer>
+        <p>© 2026 Grind & Glow Coffee Shop</p>
+    </footer>
+
+    <!-- Link checkout JavaScript -->
+    <script src="js/checkout.js"></script>
+</body>
+</html>

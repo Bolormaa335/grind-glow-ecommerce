@@ -1,106 +1,265 @@
-<!-- Coffee drinks -->
- <link rel="stylesheet" href="css/style.css">
- <script src="js/products.js"></script>
-<div class="card">
-     <!-- Product image -->
-    <img src="
-    images/latte.jpg" alt="Latte coffee">
+<!DOCTYPE html>
+<html lang="en">
 
-    <h3>Latte</h3>
-    <p>Smooth coffee with steamed milk.</p>
-    <p><strong>€4.50</strong></p>
-    <button onclick="addToBasket('Latte', '€4.50')">
-    Add to Basket
-</button>
-</div>
+<head>
+    <meta charset="UTF-8">
 
-<div class="card">
-    <!-- Product image -->
-    <img src="images/americano.webp" alt="Americano coffee">
-    <h3>Americano</h3>
-    <p>Classic black coffee.</p>
-    <p><strong>€3.20</strong></p>
-    <button onclick="addToBasket('Americano', '€3.20')">
-    Add to Basket
-</button>
-</div>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-<div class="card">
-    <!-- Product image -->
-    <img src="images/cappuccino.jpg" alt="Cappuccino coffee">
-    <h3>Cappuccino</h3>
-    <p>Espresso with milk foam.</p>
-    <p><strong>€4.00</strong></p>
-    <button onclick="addToBasket('Cappuccino', '€4.00')">
-    Add to Basket
-</button>
-</div>
+    <title>Products - Grind & Glow</title>
 
-<!-- Coffee beans -->
-<div class="card">
-    <!-- Product image -->
-    <img src="images/espresso-beans.jfif"" alt="Espresso Beans">
-    <h3>Espresso Beans</h3>
-    <p>Premium roasted espresso beans.</p>
-    <p><strong>€12.00</strong></p>
-    <button onclick="addToBasket('Espresso Beans', '€12.00')">
-    Add to Basket
-</button>
-</div>
+    <link rel="stylesheet" href="css/style.css">
+</head>
 
-<div class="card">
-    <!-- Product image -->
-    <img src="images/house-blend.jpg" alt="House Blend Beans">
-    <h3>House Blend Beans</h3>
-    <p>Balanced flavour with smooth aroma.</p>
-    <p><strong>€10.00</strong></p>
-    <button onclick="addToBasket('House Blend Beans', '€10.00')">
-    Add to Basket
-</button>
-</div>
+<body>
 
-<!-- Bakery -->
-<div class="card">
-    <!-- Product image -->
-    <img src="images/cookie.webp" alt="Chocolate Cookie">
-    <h3>Chocolate Cookie</h3>
-    <p>Fresh baked chocolate cookie.</p>
-    <p><strong>€2.50</strong></p>
-    <button onclick="addToBasket('Chocolate Cookie', '€2.50')">
-    Add to Basket
-</button>
-</div>
+    <!-- Navigation -->
+    <nav>
 
-<div class="card">
-    <!-- Product image -->
-    <img src="images/croissant.jpeg" alt="Croissant">
-    <h3>Croissant</h3>
-    <p>Buttery and flaky French pastry.</p>
-    <p><strong>€3.00</strong></p>
-   <button onclick="addToBasket('Croissant', '€3.00')">
-    Add to Basket
-</button>
-</div>
+        <h2>Grind & Glow</h2>
 
-<!-- Merchandise -->
-<div class="card">
-    <!-- Product image -->
-    <img src="images/mug.png" alt="Coffee Mug">
-    <h3>Coffee Mug</h3>
-    <p>Grind & Glow ceramic coffee mug.</p>
-    <p><strong>€8.00</strong></p>
-    <button onclick="addToBasket('Coffee Mug', '€8.00')">
-    Add to Basket
-</button>
-</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="basket.html">Basket</a>
+            <a href="checkout.html">Checkout</a>
+            <a href="admin.html">Admin</a>
+        </div>
 
-<div class="card">
-    <!-- Product image -->
-    <img src="images/tote bag.png" alt="Tote Bag">
-    <h3>Tote Bag</h3>
-    <p>Reusable cotton tote bag.</p>
-    <p><strong>€10.00</strong></p>
-    <button onclick="addToBasket('Tote Bag', '€10.00')">
-    Add to Basket
-</button>
-</div>
+    </nav>
+
+    <!-- Page title -->
+    <section class="page-header">
+
+        <h1>Our Products</h1>
+
+        <p>
+            Explore our coffee, bakery and merchandise.
+        </p>
+
+    </section>
+
+    <!-- Products container -->
+    <section class="products" id="productsContainer">
+
+        <!-- Latte -->
+        <div class="card">
+
+            <img src="images/latte.jpg"
+                alt="Latte coffee">
+
+            <h3>Latte</h3>
+
+            <p>
+                Smooth coffee with steamed milk.
+            </p>
+
+            <p><strong>€4.50</strong></p>
+
+            <button onclick=
+                "addToBasket('Latte', '€4.50')">
+
+                Add to Basket
+
+            </button>
+
+        </div>
+
+        <!-- Americano -->
+        <div class="card">
+
+            <img src="images/americano.webp"
+                alt="Americano coffee">
+
+            <h3>Americano</h3>
+
+            <p>
+                Classic black coffee.
+            </p>
+
+            <p><strong>€3.20</strong></p>
+
+            <button onclick=
+                "addToBasket('Americano', '€3.20')">
+
+                Add to Basket
+
+            </button>
+
+        </div>
+
+        <!-- Cappuccino -->
+        <div class="card">
+
+            <img src="images/cappuccino.jpg"
+                alt="Cappuccino coffee">
+
+            <h3>Cappuccino</h3>
+
+            <p>
+                Espresso with milk foam.
+            </p>
+
+            <p><strong>€4.00</strong></p>
+
+            <button onclick=
+                "addToBasket('Cappuccino', '€4.00')">
+
+                Add to Basket
+
+            </button>
+
+        </div>
+
+        <!-- Espresso Beans -->
+        <div class="card">
+
+            <img src="images/espresso-beans.jfif"
+                alt="Espresso Beans">
+
+            <h3>Espresso Beans</h3>
+
+            <p>
+                Premium roasted espresso beans.
+            </p>
+
+            <p><strong>€12.00</strong></p>
+
+            <button onclick=
+                "addToBasket('Espresso Beans', '€12.00')">
+
+                Add to Basket
+
+            </button>
+
+        </div>
+
+        <!-- House Blend -->
+        <div class="card">
+
+            <img src="images/house-blend.jpg"
+                alt="House Blend Beans">
+
+            <h3>House Blend Beans</h3>
+
+            <p>
+                Balanced flavour with smooth aroma.
+            </p>
+
+            <p><strong>€10.00</strong></p>
+
+            <button onclick=
+                "addToBasket('House Blend Beans', '€10.00')">
+
+                Add to Basket
+
+            </button>
+
+        </div>
+
+        <!-- Cookie -->
+        <div class="card">
+
+            <img src="images/cookie.webp"
+                alt="Chocolate Cookie">
+
+            <h3>Chocolate Cookie</h3>
+
+            <p>
+                Fresh baked chocolate cookie.
+            </p>
+
+            <p><strong>€2.50</strong></p>
+
+            <button onclick=
+                "addToBasket('Chocolate Cookie', '€2.50')">
+
+                Add to Basket
+
+            </button>
+
+        </div>
+
+        <!-- Croissant -->
+        <div class="card">
+
+            <img src="images/croissant.jpeg"
+                alt="Croissant">
+
+            <h3>Croissant</h3>
+
+            <p>
+                Buttery French pastry.
+            </p>
+
+            <p><strong>€3.00</strong></p>
+
+            <button onclick=
+                "addToBasket('Croissant', '€3.00')">
+
+                Add to Basket
+
+            </button>
+
+        </div>
+
+        <!-- Mug -->
+        <div class="card">
+
+            <img src="images/mug.png"
+                alt="Coffee Mug">
+
+            <h3>Coffee Mug</h3>
+
+            <p>
+                Grind & Glow ceramic mug.
+            </p>
+
+            <p><strong>€8.00</strong></p>
+
+            <button onclick=
+                "addToBasket('Coffee Mug', '€8.00')">
+
+                Add to Basket
+
+            </button>
+
+        </div>
+
+        <!-- Tote Bag -->
+        <div class="card">
+
+            <img src="images/tote bag.png"
+                alt="Tote Bag">
+
+            <h3>Tote Bag</h3>
+
+            <p>
+                Reusable cotton tote bag.
+            </p>
+
+            <p><strong>€10.00</strong></p>
+
+            <button onclick=
+                "addToBasket('Tote Bag', '€10.00')">
+
+                Add to Basket
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Grind & Glow Coffee Shop</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/products.js"></script>
+
+</body>
+
+</html>
