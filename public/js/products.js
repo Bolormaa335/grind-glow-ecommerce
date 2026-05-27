@@ -2,21 +2,17 @@
 fetch("/api/products")
     .then(response => response.json())
     .then(products => {
-
-        // Select products container
-        const container = document.getElementById("productsContainer");
-
+     // Select products container
+     const container = document.getElementById("productsContainer");
         // Loop through products from database
         products.forEach(product => {
-
             // Create product card
             const card = document.createElement("div");
             card.className = "card";
-
             // Add milk option only for coffee drinks
             let milkOption = "";
 
-            if (
+ if (
                 product.name === "Latte" ||
                 product.name === "Americano" ||
                 product.name === "Cappuccino"
@@ -33,11 +29,9 @@ fetch("/api/products")
                     </div>
                 `;
             }
-
             // Add product details into card
             card.innerHTML = `
                 <img src="images/${product.image}" alt="${product.name}">
-
                 <h3>${product.name}</h3>
 
                 <p>${product.description}</p>
@@ -55,7 +49,6 @@ fetch("/api/products")
         });
     });
 
-
 // Function to add selected product to basket database
 function addToBasket(productId) {
 
@@ -71,7 +64,6 @@ function addToBasket(productId) {
             product_id: productId
         })
     })
-
     // Convert response to JSON
     .then(response => response.json())
 

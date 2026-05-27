@@ -1,57 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
+    <!-- Character encoding -->
     <meta charset="UTF-8">
 
-    <!-- Responsive design -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Responsive design for mobile devices -->
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-    <!-- Page title -->
+    <!-- Browser tab title -->
     <title>Basket - Grind & Glow</title>
 
-    <!-- Link to CSS -->
+    <!-- Connect external CSS stylesheet -->
     <link rel="stylesheet" href="css/style.css">
+
 </head>
+
 <body>
 
     <!-- Navigation bar -->
     <nav>
+
+        <!-- Website logo/title -->
         <h2>Grind & Glow</h2>
 
+        <!-- Navigation menu links -->
         <div class="nav-links">
+
             <a href="index.html">Home</a>
             <a href="products.html">Products</a>
             <a href="basket.html">Basket</a>
             <a href="checkout.html">Checkout</a>
             <a href="admin.html">Admin</a>
+
         </div>
+
     </nav>
 
-    <!-- Basket heading -->
+    <!-- Basket page heading -->
     <section class="page-header">
+
+        <!-- Main heading -->
         <h1>Your Basket</h1>
-        <p>Review your selected products before checkout.</p>
+
+        <!-- Small description -->
+        <p>Review your selected products before checkout.
+        </p>
+
     </section>
 
-    <!-- Basket items will be displayed here by JavaScript -->
-    <section id="basketContainer" class="basket-container"></section>
+    <!-- Basket products container
+         Products are loaded dynamically
+         from the MySQL database using JavaScript -->
+    <section id="basketContainer"class="basket-container">
 
-    <!-- Total price -->
-    <h2 id="totalPrice" class="total-price"></h2>
+    </section>
 
-    <!-- Checkout button -->
+    <!-- Total basket price -->
+    <h2 id="totalPrice" class="total-price">
+    </h2>
+
+    <!-- Checkout button section -->
     <div class="center">
+
+        <!-- Link to checkout page -->
         <a href="checkout.html">
-            <button>Proceed to Checkout</button>
+
+    <button>Proceed to Checkout</button>
         </a>
+
     </div>
 
-    <!-- Footer -->
+    <!-- Footer section -->
     <footer>
-        <p>© 2026 Grind & Glow Coffee Shop</p>
+        <p>© 2026 Grind & Glow Coffee Shop </p>
+
     </footer>
 
-    <!-- Link basket JavaScript -->
+    <!-- Connect basket JavaScript file -->
     <script src="js/basket.js"></script>
+
 </body>
+
 </html>

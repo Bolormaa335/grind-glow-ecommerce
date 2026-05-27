@@ -1,60 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
+    <!-- Character encoding -->
     <meta charset="UTF-8">
 
-    <!-- Makes page responsive on mobile -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Makes website responsive on mobile devices -->
+    <meta name="viewport"content="width=device-width, initial-scale=1.0">
 
-    <!-- Page title -->
+    <!-- Browser tab title -->
     <title>Checkout - Grind & Glow</title>
 
-    <!-- Link CSS file -->
+    <!-- Connect external CSS file -->
     <link rel="stylesheet" href="css/style.css">
+
 </head>
+
 <body>
 
     <!-- Navigation bar -->
     <nav>
+        <!-- Website logo/title -->
         <h2>Grind & Glow</h2>
 
+        <!-- Navigation menu links -->
         <div class="nav-links">
+
             <a href="index.html">Home</a>
             <a href="products.html">Products</a>
             <a href="basket.html">Basket</a>
             <a href="checkout.html">Checkout</a>
             <a href="admin.html">Admin</a>
+
         </div>
+
     </nav>
 
-    <!-- Page heading -->
+    <!-- Checkout page heading -->
     <section class="page-header">
+
+        <!-- Main page heading -->
         <h1>Checkout</h1>
-        <p>Complete your order details below.</p>
+
+        <!-- Small description -->
+        <p> Complete your order details below. </p>
+
     </section>
 
     <!-- Checkout form container -->
     <div class="checkout-container">
 
-        <!-- Form is checked by JavaScript before submitting -->
+        <!-- Form validated using JavaScript -->
         <form id="checkoutForm">
+         <!-- Customer full name input -->
+            <input type="text"
+                id="name" placeholder="Full Name">
 
-            <input type="text" id="name" placeholder="Full Name">
-
-            <input type="text" id="email" placeholder="Email Address">
-
+            <!-- Customer email input -->
+            <input type="text"
+                id="email" placeholder="Email Address">
+            <!-- Customer delivery address -->
             <textarea id="address" placeholder="Delivery Address"></textarea>
 
-            <button type="submit">Place Order</button>
+            <!-- Submit order button -->
+            <button type="submit">
+                Place Order
+            </button>
 
         </form>
+
     </div>
 
+    <!-- Footer section -->
     <footer>
+
         <p>© 2026 Grind & Glow Coffee Shop</p>
+
     </footer>
 
-    <!-- Link checkout JavaScript -->
+    <!-- Connect checkout JavaScript file -->
     <script src="js/checkout.js"></script>
+
 </body>
+
 </html>

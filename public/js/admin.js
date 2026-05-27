@@ -3,7 +3,6 @@ const adminForm = document.getElementById("adminForm");
 
 // Run when admin submits the form
 adminForm.addEventListener("submit", function(event) {
-
     // Stop page reload
     event.preventDefault();
 
@@ -26,15 +25,12 @@ adminForm.addEventListener("submit", function(event) {
         alert("Please enter a valid price.");
         return;
     }
-
     // Send PUT request to update price in database
     fetch("/api/products/" + productId + "/price", {
         method: "PUT",
-
         headers: {
             "Content-Type": "application/json"
         },
-
         body: JSON.stringify({
             price: newPrice
         })
