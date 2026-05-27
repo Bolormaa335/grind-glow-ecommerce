@@ -72,3 +72,30 @@ function addToBasket(productId) {
         alert(data.message);
     });
 }
+// Select search input from products page
+const searchInput = document.getElementById("searchInput");
+
+// Check if search input exists before using it
+if (searchInput) {
+    // Run search function when user types
+    searchInput.addEventListener("keyup", function() {
+        // Get typed search text
+        const searchText = searchInput.value.toLowerCase();
+        // Select all product cards
+        const cards = document.querySelectorAll(".card");
+        // Loop through each card
+        cards.forEach(function(card) {
+
+            // Get product name from card heading
+            const productName =
+                card.querySelector("h3").textContent.toLowerCase();
+
+            // Show matching products and hide non-matching products
+            if (productName.includes(searchText)) {
+                card.style.display = "flex";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    });
+}
