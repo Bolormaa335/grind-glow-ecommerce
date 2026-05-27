@@ -48,9 +48,20 @@ if (!emailPattern.test(email)) {
     // Show success message
     alert("Thank you for your order, " + name + "!");
 
-    // Clear basket after successful checkout
-    localStorage.removeItem("basket");
+    // Clear basket from database after successful checkout
+fetch("/api/basket", {
+    method: "DELETE"
+})
+.then(response => response.json())
+.then(data => {
+
+    // Show success message
+    alert("Thank you for your order, " + name + "!");
 
     // Reset the form
     form.reset();
+
+    // Move user back to products page
+    window.location.href = "products.html";
+});
 });

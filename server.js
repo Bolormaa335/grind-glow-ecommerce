@@ -104,7 +104,23 @@ app.delete("/api/basket/:id", (req, res) => {
         res.json({ message: "Item removed from basket" });
     });
 });
-// Start server on port 3000
+// API route: clear all basket items after checkout
+app.delete("/api/basket", (req, res) => {
+
+    // SQL query to remove all basket items
+    const sql = "DELETE FROM basket WHERE id > 0";
+
+    connection.query(sql, (err) => {
+
+        if (err) {
+            console.log(err);
+            res.status(500).send("Basket clear error");
+            return;
+        }
+
+        res.json({ message: "Basket cleared successfully" });
+    });
+});
 // Start server on port 3000
 app.listen(3000, () => {
 
